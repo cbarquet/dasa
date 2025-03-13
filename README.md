@@ -59,3 +59,34 @@ Run the script using this syntax in the command line:
 
 ```bash
 python3 dasa.py <TARGET_URL> [OPTIONS]
+```
+
+## Options
+
+```bash
+python3 dasa.py -h
+
+Usage: dasa.py [-h] [-o OUTPUT] [--deep] [--hidden] [--fuzz]
+               [--accurate-hidden] [--detailed] [--depth DEPTH] [--verbose]
+               url
+
+DASA - ASYNC EDITION
+
+positional arguments:
+
+
+  url                  Target URL to analyze (ex: https://example.com)
+
+options:
+
+
+  -h, --help           Show this help message and exit
+  -o, --output OUTPUT  File to save the report (optional)
+  --deep               Enable deep tracking (follow links)
+  --hidden             Detect common hidden routes
+  --fuzz               Enable basic fuzzing of GET parameters
+  --accurate-hidden    More accurate hidden path detection (slow)
+  --detailed           Enable detailed contextual analysis
+  --depth DEPTH        Maximum tracking depth (default: 3)
+  --verbose            Verbose mode for more details in console
+```
