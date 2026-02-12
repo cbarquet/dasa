@@ -507,6 +507,8 @@ def detect_hidden_paths(base_url, common_dirs_file=COMMON_DIRECTORIES_FILE, comm
 
 def load_wordlist(filepath):
     """Load a wordlist from a text file."""
+    if '../' in filepath or '..\\' in filepath:
+        raise Exception('Invalid file path')
     if not os.path.exists(filepath):
         if verbose:
             logging.warning(f"    [!] Warning: wordlist not found at: {filepath}")
@@ -822,6 +824,8 @@ def generate_report(report_data, points, visited_urls, output_filepath=None, exe
 
 
     if output_filepath:
+        if '../' in output_filepath or '..\\' in output_filepath:
+            raise Exception('Invalid file path')
         try:
             with open(output_filepath, 'w', encoding='utf-8') as outfile:
                 outfile.write(report_content)
